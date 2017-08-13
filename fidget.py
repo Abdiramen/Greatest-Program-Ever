@@ -3,9 +3,11 @@ from time import sleep
 import os
 os.system('setterm -cursor off')
 spin = "-\|/"
-while True:
-    for i in spin:
-        sleep(.1)
-        print('[{}]'.format(i), end='\r')
-print()
-os.system('setterm -cursor on')
+try:
+    while True:
+        for i in spin:
+            sleep(.1)
+            print('[{}]'.format(i), end='\r')
+except KeyboardInterrupt:
+    print('\rThank you')
+    os.system('setterm -cursor on')
